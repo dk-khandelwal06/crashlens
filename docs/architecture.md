@@ -58,7 +58,8 @@ CrashLens separates the computationally intensive offline Machine Learning & Spa
 ## 2. Key Technology Choices
 
 - **Next.js 15 App Router**: Server-side pre-rendering with static export capability for maximal performance and zero server maintenance on Vercel.
-- **Leaflet & CartoDB Voyager**: Fast, lightweight, standards-compliant slippy map client without paid API keys.
+- **Leaflet & OpenStreetMap**: Fast, lightweight, standards-compliant slippy map client without paid API keys.
 - **Recharts**: Responsive SVG charting for statistical distributions.
 - **scikit-learn with Haversine Metric**: Exact spherical distance calculations without planar Euclidean distortions.
 - **Web Speech API**: Zero-dependency browser-native text-to-speech briefing.
+

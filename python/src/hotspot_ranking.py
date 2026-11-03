@@ -158,3 +158,4 @@ class HotspotRanker:
             hotspot["rank"] = idx + 1
 
         return hotspots
+

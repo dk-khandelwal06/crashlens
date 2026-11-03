@@ -47,3 +47,4 @@ def test_hotspot_ranker_ordering():
     assert ranked[1]["cluster_id"] == 1
     assert ranked[1]["rank"] == 2
     assert ranked[1]["severity_score"] == 2.0
+

@@ -554,3 +554,4 @@ export const IntelligenceDashboard: React.FC<IntelligenceDashboardProps> = ({
     </div>
   );
 };
+

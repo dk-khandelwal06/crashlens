@@ -18,3 +18,4 @@ Analysis of 26,030 validated personal injury collisions recorded across Greater 
 - **Carriageway Distribution:** Single carriageway roadways accounted for the overwhelming majority of collisions, followed by dual carriageways and roundabouts.
 - **Weather Breakdown:** 80%+ of recorded incidents occurred under clear/fine weather conditions, demonstrating that driver exposure volume during fair conditions dominates raw collision counts over adverse weather events.
 - **Non-Causation Disclosure:** All identified metrics represent historical empirical correlations. They reflect travel exposure and density rather than proven individual causation.
+

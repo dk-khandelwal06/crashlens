@@ -217,3 +217,4 @@ class DataCleaner:
 
         self.audit_log["retained_record_count"] = int(len(df))
         return df, self.audit_log
+

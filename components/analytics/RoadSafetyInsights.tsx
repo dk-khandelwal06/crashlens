@@ -153,3 +153,4 @@ export const RoadSafetyInsights: React.FC<RoadSafetyInsightsProps> = ({ analytic
     </div>
   );
 };
+

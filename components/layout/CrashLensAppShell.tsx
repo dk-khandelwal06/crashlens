@@ -100,3 +100,4 @@ export const CrashLensAppShell: React.FC<CrashLensAppShellProps> = ({
     </div>
   );
 };
+

@@ -398,3 +398,4 @@ export const ClusteringLaboratory: React.FC<ClusteringLaboratoryProps> = ({
     </div>
   );
 };
+

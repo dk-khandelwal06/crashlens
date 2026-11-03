@@ -24,3 +24,4 @@
 | `kmeans_cluster` | Integer | Cluster partition assigned by baseline KMeans (0 to K-1). |
 | `severity_score` | Float | Weighted risk score: (10 × Fatal) + (4 × Serious) + (1 × Slight). |
 | `risk_tier` | String | Categorical priority: Critical, High, Moderate, Emerging. |
+

@@ -228,3 +228,4 @@ class AnalyticsEngine:
         })
 
         return insights
+

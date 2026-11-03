@@ -31,7 +31,7 @@ def generate_folium_map():
         hotspots = json.load(f)
 
     # London center
-    m = folium.Map(location=[51.5074, -0.1278], zoom_start=11, tiles="CartoDB positron")
+    m = folium.Map(location=[51.5074, -0.1278], zoom_start=11, tiles="OpenStreetMap")
 
     for h in hotspots[:50]:  # Top 50 hotspots
         color = "red" if h["risk_tier"] == "Critical" else "orange" if h["risk_tier"] == "High" else "blue"
@@ -52,3 +52,4 @@ def generate_folium_map():
 
 if __name__ == "__main__":
     generate_folium_map()
+

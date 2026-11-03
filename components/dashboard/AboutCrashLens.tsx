@@ -116,7 +116,7 @@ export const AboutCrashLens: React.FC = () => {
           <div className="p-3 rounded-xl bg-[var(--bg-secondary)] space-y-1">
             <span className="text-[10px] text-[var(--text-muted)] block">MAPPING & CHARTS</span>
             <p className="font-bold text-[var(--text-primary)]">Leaflet & Recharts</p>
-            <p className="text-[11px] text-[var(--text-secondary)]">CARTO & OpenStreetMap Tiles</p>
+            <p className="text-[11px] text-[var(--text-secondary)]">OpenStreetMap High-Res Tiles</p>
           </div>
 
           <div className="p-3 rounded-xl bg-[var(--bg-secondary)] space-y-1">
@@ -129,3 +129,4 @@ export const AboutCrashLens: React.FC = () => {
     </div>
   );
 };
+

@@ -54,3 +54,4 @@ def test_bounds_checking():
     assert is_within_bounds(51.5074, -0.1278, LONDON_BOUNDS) is True
     # Edinburgh, Scotland (outside London bounds)
     assert is_within_bounds(55.9533, -3.1883, LONDON_BOUNDS) is False
+

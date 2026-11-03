@@ -104,3 +104,4 @@ def is_within_bounds(lat: float, lon: float, bounds: dict = LONDON_BOUNDS) -> bo
         bounds["min_lat"] <= lat <= bounds["max_lat"]
         and bounds["min_lon"] <= lon <= bounds["max_lon"]
     )
+

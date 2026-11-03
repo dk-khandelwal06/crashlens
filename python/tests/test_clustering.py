@@ -56,3 +56,4 @@ def test_kmeans_clustering():
     assert centers.shape == (2, 2)
     assert len(labels) == len(df)
     assert summary["inertia"] > 0
+

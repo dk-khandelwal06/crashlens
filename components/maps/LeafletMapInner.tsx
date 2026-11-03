@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import { Hotspot, CrashPoint } from "@/src/types";
 
 interface LeafletMapInnerProps {
@@ -15,6 +16,19 @@ interface LeafletMapInnerProps {
   filterSeverity: string;
   filterTime: string;
 }
+
+// Controller to handle container resize and invalidate tile dimensions
+const MapResizeHandler: React.FC = () => {
+  const map = useMap();
+  useEffect(() => {
+    map.invalidateSize();
+    const timer = setTimeout(() => {
+      map.invalidateSize();
+    }, 250);
+    return () => clearTimeout(timer);
+  }, [map]);
+  return null;
+};
 
 // Controller to smoothly pan to selected hotspot
 const MapCenterController: React.FC<{ selectedHotspot: Hotspot | null }> = ({
@@ -104,10 +118,18 @@ export const LeafletMapInner: React.FC<LeafletMapInnerProps> = ({
         style={{ height: "100%", width: "100%", minHeight: "550px" }}
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+          attribution={
+            process.env.NEXT_PUBLIC_TILE_ATTRIBUTION ||
+            '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors'
+          }
+          url={
+            process.env.NEXT_PUBLIC_TILE_URL ||
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+          }
+          maxZoom={19}
         />
 
+        <MapResizeHandler />
         <MapCenterController selectedHotspot={selectedHotspot} />
 
         {/* 1. DBSCAN Hotspots Layer */}
@@ -215,3 +237,4 @@ export const LeafletMapInner: React.FC<LeafletMapInnerProps> = ({
     </div>
   );
 };
+

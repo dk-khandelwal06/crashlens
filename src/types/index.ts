@@ -230,3 +230,4 @@ export interface TransparencyData {
   severity_code_mapping: Record<string, string>;
   limitations_statement: string;
 }
+

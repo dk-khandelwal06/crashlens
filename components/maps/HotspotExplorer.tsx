@@ -378,3 +378,4 @@ export const HotspotExplorer: React.FC<HotspotExplorerProps> = ({ hotspots, cras
     </div>
   );
 };
+

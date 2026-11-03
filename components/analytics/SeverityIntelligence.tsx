@@ -277,3 +277,4 @@ export const SeverityIntelligence: React.FC<SeverityIntelligenceProps> = ({
     </div>
   );
 };
+

@@ -213,3 +213,4 @@ export const DataTransparency: React.FC<DataTransparencyProps> = ({ transparency
     </div>
   );
 };
+

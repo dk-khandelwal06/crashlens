@@ -110,3 +110,4 @@ class DataExporter:
             records.append(record)
 
         self._write_json("crashes_sample.json", records)
+

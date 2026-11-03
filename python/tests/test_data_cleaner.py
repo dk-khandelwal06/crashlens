@@ -35,3 +35,4 @@ def test_cleaner_audit_log_and_filtering():
     assert "road_type_label" in df_clean.columns
     assert df_clean.iloc[0]["severity_label"] == "Fatal"
     assert df_clean.iloc[1]["severity_label"] == "Serious"
+

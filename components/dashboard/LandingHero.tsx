@@ -193,3 +193,4 @@ export const LandingHero: React.FC<LandingHeroProps> = ({ summary, onNavigate })
     </section>
   );
 };
+
