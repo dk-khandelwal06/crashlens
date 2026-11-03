@@ -1,223 +1,288 @@
-# CrashLens 🚨🛰️
+<div align="center">
 
-> **"Finding where accidents cluster, not just where they happen."**
+<img src="assets/logo.png" alt="CrashLens Logo" width="180" />
 
-**Project Number:** 004  
-**Domain:** Public Safety / Transportation Intelligence  
-**Core Technologies:** Unsupervised Machine Learning (Haversine DBSCAN & KMeans), Geospatial Analytics, Next.js 15, React 19, TypeScript, Tailwind CSS, Leaflet, Recharts, Python 3.13, scikit-learn.
+# CrashLens
 
----
+### Finding where accidents cluster, not just where they happen.
 
-## 1. Project Overview
+Turning raw collision records into interactive road-safety intelligence — powered by density-based clustering and geospatial analytics.
 
-**CrashLens** is a full-stack road safety intelligence platform designed to analyze empirical collision distributions and identify dangerous road segments. Rather than treating accidents as isolated pinpoints on a spreadsheet, CrashLens uses unsupervised density-based clustering to isolate high-risk corridors, roundabout complexes, and intersection hazards from background noise.
+<br/>
 
-### Key Capabilities
-- **Primary Detector:** DBSCAN with Great-Circle Haversine angular distance metric ($R = 6,371.0088\text{ km}$).
-- **Baseline Comparison:** Centroid-based KMeans with within-cluster sum of squares (WCSS / Inertia) and Silhouette score analysis.
-- **Severity-Weighted Ranking:** Multi-attribute risk index ($10 \times \text{Fatal} + 4 \times \text{Serious} + 1 \times \text{Slight}$) prioritizing civil interventions.
-- **Interactive Geospatial Map:** Leaflet GIS explorer with algorithm layer toggling (DBSCAN vs KMeans vs Incident Points), noise exclusion, and cluster inspector drawer.
-- **8 Dynamic Statistical Visualizations:** Diurnal 24h curves, weekday vs weekend patterns, monthly seasonality, road type classifications, and lighting breakdowns.
-- **Audio Briefing:** Native Web Speech API integration ("Listen to CrashLens") for voice-narrated situational awareness.
-- **Triple Theme Appearance:** Dedicated **Light** (safety orange / warm off-white), **Comfort** (balanced neutral stone), and **Dark** (tactical graphite).
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-149ECA?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Leaflet](https://img.shields.io/badge/Leaflet-1.9-199900?style=for-the-badge&logo=leaflet&logoColor=white)](https://leafletjs.com/)
+[![Recharts](https://img.shields.io/badge/Recharts-2-FF6B6B?style=for-the-badge)](https://recharts.org/)
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://crashlens-snowy.vercel.app/)
 
----
+<br/>
 
-## 2. Dataset Provenance & Scope
+**[🚀 Live Demo](https://crashlens-snowy.vercel.app/) · [📂 GitHub Repository](https://github.com/dk-khandelwal06/crashlens) · [💼 LinkedIn](https://www.linkedin.com/in/daksh-khandelwal-b02748391/)**
 
-- **Official Source:** UK Department for Transport (DfT) STATS19 Road Casualty Statistics.
-- **Source Portal:** [UK Government Road Safety Open Data](https://www.gov.uk/government/statistical-data-sets/road-safety-open-data)
-- **Licensing:** Open Government Licence (OGL v3.0).
-- **Study Area:** Greater London ($51.28^\circ\text{N}$ to $51.69^\circ\text{N}$, $-0.51^\circ\text{W}$ to $0.33^\circ\text{E}$).
-- **Validation Audit:**
-  - Raw records loaded: **106,004**
-  - Invalid/missing coordinates rejected: **22**
-  - Outside London boundary: **79,952**
-  - Retained & clustered: **26,030**
+</div>
 
-*Geographical Scope Notice:* This release analyzes official UK STATS19 data. It does not represent traffic data for Jaipur, Rajasthan, or India.
+<br/>
 
 ---
 
-## 3. Getting Started & Local Development
+## 📖 Overview
+
+**CrashLens** is a full-stack road-safety intelligence platform that treats road collisions not as isolated pins on a map, but as a spatial pattern waiting to be found. A single accident record tells you almost nothing on its own — a dangerous junction only reveals itself when dozens of incidents concentrate in the same few hundred metres, year after year.
+
+CrashLens applies **density-based clustering (DBSCAN)** — with a true great-circle **Haversine** distance metric — to UK collision data, automatically surfacing the road stretches, junctions, and roundabouts where crashes concentrate most densely, while filtering out sparse, unrelated noise. A **KMeans** baseline runs alongside it so the two approaches can be compared directly, and every hotspot is ranked by a transparent, severity-weighted risk score rather than raw count alone.
+
+The result is an interactive dashboard where the clustering pipeline, the map, the statistics, and the methodology are all one connected story — not a notebook buried in a repo.
+
+---
+
+## 🧭 The Problem
+
+Individual accident records don't reveal *where it's dangerous* — they reveal *where something happened once*. Traffic authorities need to know which specific stretches of road concentrate repeated incidents, because that's where interventions — signage, speed cameras, redesigned junctions — actually move the needle.
+
+The common alternatives fall short:
+
+- **Simple point maps** show volume, not density — a junction with 20 accidents scattered loosely over a kilometre looks identical to 20 accidents packed into 200 metres, even though the second is a far more urgent fix.
+- **Aggregate counts** (ward-level, city-level, annual reports) are useful for policy, but too coarse to point to an actual junction or roundabout.
+
+CrashLens exists to close that gap between "an accident happened near here" and "this specific stretch is a hotspot."
+
+---
+
+## 💡 The Solution
+
+CrashLens turns individual collision records into geographic intelligence through a clear, reproducible pipeline:
+
+```mermaid
+flowchart LR
+    A[STATS19 Dataset] --> B[Data Cleaning]
+    B --> C[Exploratory Data Analysis]
+    C --> D[KMeans Baseline]
+    C --> E[Haversine DBSCAN]
+    D --> F[Cluster Evaluation]
+    E --> F
+    F --> G[Severity-Weighted Hotspot Ranking]
+    G --> H[Interactive Geospatial Visualization]
+    H --> I[Road Safety Insights]
+```
+
+An offline Python pipeline does the heavy lifting — cleaning, converting coordinates to radians, running both clustering algorithms, scoring and ranking the resulting hotspots — and serializes the results to static JSON/GeoJSON. The Next.js web app then renders that output as a fully interactive experience, with zero server-side ML computation at request time.
+
+---
+
+## ✨ Key Features
+
+- 🎯 **DBSCAN-based hotspot detection** using a true Haversine (great-circle) distance metric, with noise points identified and excluded
+- 📊 **KMeans baseline comparison** — elbow method and silhouette score for choosing the right number of clusters
+- 🏆 **Severity-weighted hotspot ranking**, prioritizing clusters by collision severity, not just volume
+- 🗺️ **Interactive Leaflet map** with layer toggling between DBSCAN clusters, KMeans clusters, and raw incident points
+- 🔍 **Cluster selection & filtering** with a dedicated inspector for drilling into a single hotspot
+- 📈 **Intelligence dashboard** — severity distribution, road-type and lighting breakdowns
+- ⏱️ **Temporal analytics** — hourly, weekday-vs-weekend, and monthly accident patterns
+- 🧪 **Clustering laboratory** — interactive KMeans elbow curve and silhouette-score exploration
+- 🎨 **Three appearance themes** — Light, Comfort, and Dark
+- 🔊 **Browser-based voice narration** of key insights via the Web Speech API
+
+---
+
+## 🖼️ Application Preview
+
+<div align="center">
+
+<img src="assets/overview.png" width="850" alt="CrashLens Overview" />
+<p><em>Landing overview — the full CrashLens experience at a glance</em></p>
+
+<br/>
+
+<img src="assets/intelligence_dashboard.png" width="850" alt="Intelligence Dashboard" />
+<p><em>Intelligence Dashboard — severity distribution and risk breakdowns</em></p>
+
+<br/>
+
+<img src="assets/hotspot_explorer.png" width="850" alt="Interactive Hotspot Explorer" />
+<p><em>Interactive Hotspot Explorer — Leaflet map with DBSCAN / KMeans / point layers</em></p>
+
+<br/>
+
+<img src="assets/clustering_laboratory.png" width="850" alt="Clustering Laboratory" />
+<p><em>Clustering Laboratory — elbow method and silhouette score exploration</em></p>
+
+<br/>
+
+<img src="assets/temporal_analytics.png" width="700" alt="Temporal Analytics" />
+<p><em>Temporal Analytics — hourly, weekday, and monthly accident patterns</em></p>
+
+</div>
+
+---
+
+## 🔬 Machine Learning Methodology
+
+### KMeans — Centroid-Based Baseline
+A classic partitioning algorithm used here as a comparison baseline. The right number of clusters, *k*, is chosen using the **elbow method** (inertia / WCSS across a range of *k*) together with the **silhouette score**, which measures how well-separated the resulting clusters are.
+
+### DBSCAN — Density-Based Hotspot Detection (Primary Method)
+DBSCAN groups points that are densely packed together and explicitly labels sparse, isolated points as **noise** rather than forcing them into a cluster. This makes it the right tool for accident hotspots: real-world danger zones are irregularly shaped (a bent road, a cluster of nearby junctions), and most accidents in a dataset are *not* part of any hotspot at all. KMeans, by contrast, always assigns every point to a cluster and assumes roughly spherical cluster shapes — both are poor fits for this problem, which is why DBSCAN is CrashLens's primary detector and KMeans is kept as a baseline for comparison.
+
+DBSCAN requires two parameters: **epsilon** (the neighbourhood radius) and **minimum samples** (the minimum number of points needed to form a dense region). Because accident coordinates are in latitude/longitude, CrashLens uses scikit-learn's `metric='haversine'`, which requires both the coordinates and epsilon to be expressed in **radians** — plain Euclidean distance on raw degrees would badly distort real-world distances.
+
+**Haversine epsilon conversion:**
+
+```
+eps_radians = eps_km / Earth_radius_km
+```
+
+where `Earth_radius_km = 6371.0088` (WGS84 mean radius).
+
+---
+
+## 🏆 Severity-Weighted Hotspot Ranking
+
+Rather than ranking hotspots by raw collision count alone, CrashLens scores each cluster using a transparent, severity-weighted formula:
+
+```
+Score = (10 × Fatal) + (4 × Serious) + (1 × Slight)
+```
+
+This ensures a small cluster with several fatal collisions is surfaced as more urgent than a larger cluster of minor incidents. The resulting score and risk tier are a **transparent historical severity-weighted index** — they describe patterns in past data and are **not** a validated prediction of future crashes.
+
+---
+
+## 📊 Dataset & Data Transparency
+
+- **Source:** UK Department for Transport (DfT) **STATS19 Road Casualty Statistics**
+- **Official portal:** [gov.uk — Road Safety Open Data](https://www.gov.uk/government/statistical-data-sets/road-safety-open-data)
+- **Licensing:** Open Government Licence v3.0
+- **Study area:** Greater London
+
+| Stage | Records |
+|---|---|
+| Raw records loaded | 106,004 |
+| Invalid / missing coordinates rejected | 22 |
+| Outside Greater London boundary | 79,952 |
+| Retained & clustered | **26,030** |
+
+> **Geographical scope notice:** This release analyzes official UK STATS19 data for Greater London only. It does **not** represent road accident conditions in Jaipur, Rajasthan, India, or anywhere outside its stated study area, and it does not cover every road accident — only those reported to police and recorded under STATS19.
+
+---
+
+## 🛠️ Technology Stack
+
+**Frontend**
+Next.js 15 · React 19 · TypeScript · Tailwind CSS
+
+**Visualization**
+Leaflet · React-Leaflet · Recharts
+
+**Machine Learning**
+Python · Pandas · NumPy · scikit-learn · Matplotlib · Seaborn
+
+**Development & Deployment**
+Git · GitHub · Vercel
+
+---
+
+## 🏗️ Architecture
+
+```
+STATS19 CSV
+   → Python Data Processing (pandas, numpy)
+   → Geospatial Cleaning & Validation
+   → KMeans + Haversine DBSCAN (scikit-learn)
+   → Cluster Evaluation (inertia, silhouette)
+   → Severity-Weighted Hotspot Ranking
+   → Static JSON / GeoJSON Export
+   → Next.js Application (React, Leaflet, Recharts)
+   → Interactive User Experience
+```
+
+The Python machine-learning pipeline runs **offline** and produces static JSON/GeoJSON artifacts consumed by the web application. Vercel serves the pre-built Next.js app and does **not** execute the Python clustering pipeline at runtime.
+
+---
+
+## ⚙️ Local Installation & Setup
 
 ### Prerequisites
-- **Node.js:** v18.18+ (tested on v26.13)
-- **npm:** v10+ (tested on v11.20)
-- **Python:** 3.10+ (tested on 3.13)
+- Node.js v18.18+
+- npm v10+
+- Python 3.10+
 
-### Installation
-
-#### 1. Clone the repository
+### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/crashlens.git
+git clone https://github.com/dk-khandelwal06/crashlens.git
 cd crashlens
 ```
 
-#### 2. Install Frontend Dependencies
+### 2. Install frontend dependencies
 ```bash
 npm install
 ```
 
-#### 3. Install Python Dependencies
+### 3. Install Python dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## 4. Running the Machine Learning Pipeline
-
-The offline Python pipeline cleans the dataset, converts coordinates to radians, runs Haversine DBSCAN and KMeans, and serializes compact static JSON/GeoJSON models to `public/data/` for zero-latency web rendering.
-
+### 4. Run the machine-learning pipeline
 ```bash
-# Execute end-to-end data pipeline
 python python/src/run_pipeline.py
 ```
 
-### Running Unit Tests
+### 5. Start the development server
 ```bash
-# Run full pytest suite for geo math, DBSCAN, KMeans, and data validation
-python -m pytest python/tests -v
-```
-
----
-
-## 5. Running the Web Application
-
-```bash
-# Start Next.js development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-## 6. Production Build & Verification
+## 🚀 Deployment
 
-```bash
-# Compile and build production-optimized static bundles
-npm run build
+CrashLens is deployed on **[Vercel](https://vercel.com)** directly from this GitHub repository. Vercel auto-detects the Next.js framework, builds with `npm run build`, and serves the static `.next` output — including the pre-generated STATS19 clustering results in `public/data/`.
 
-# Start production server locally
-npm start
-```
+🔗 **Live:** [crashlens-snowy.vercel.app](https://crashlens-snowy.vercel.app/)
 
 ---
 
-## 7. Deployment Instructions
+## 🔒 Security & Data Ethics
 
-### A. Publishing to GitHub
-1. Ensure `.env` and `data/raw/` are excluded by `.gitignore`.
-2. Stage and commit all source code and pre-rendered `public/data/` artifacts:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: complete production release of CrashLens"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/crashlens.git
-   git push -u origin main
-   ```
-
-### B. Deploying to Vercel
-1. Log into your [Vercel Dashboard](https://vercel.com).
-2. Click **Add New Project** and import the `crashlens` GitHub repository.
-3. Vercel automatically detects **Next.js**.
-4. Confirm build settings:
-   - **Framework Preset:** Next.js
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `.next`
-5. Click **Deploy**.
-6. The site will deploy in ~1 minute as static pages pre-hydrated with real STATS19 machine learning outputs—with **zero Python backend runtime overhead**.
+- No hardcoded API keys or secret credentials in client code
+- Environment variables handled via `.env.local` / `.env.example`, excluded from version control
+- Raw dataset files excluded from the repository via `.gitignore`
+- Built entirely on public, open-licensed government data (OGL v3.0)
+- STATS19 is historical, aggregate collision data with no personal identifiers in the analytical dataset
 
 ---
 
-## 8. Repository Structure
+## 🔭 Future Scope
 
-```
-crashlens/
-├── app/
-│   ├── globals.css              # Custom themes (light/comfort/dark) & Leaflet overrides
-│   ├── layout.tsx               # Root layout & ThemeProvider
-│   └── page.tsx                 # Static Server Component hydrating data
-├── components/
-│   ├── analytics/
-│   │   ├── RoadSafetyInsights.tsx
-│   │   ├── SeverityIntelligence.tsx
-│   │   └── TemporalAnalytics.tsx
-│   ├── clustering/
-│   │   ├── ClusteringLaboratory.tsx
-│   │   └── MethodologySection.tsx
-│   ├── dashboard/
-│   │   ├── AboutCrashLens.tsx
-│   │   ├── DataTransparency.tsx
-│   │   ├── IntelligenceDashboard.tsx
-│   │   └── LandingHero.tsx
-│   ├── layout/
-│   │   ├── CrashLensAppShell.tsx
-│   │   └── Footer.tsx
-│   ├── maps/
-│   │   ├── HotspotExplorer.tsx
-│   │   └── LeafletMapInner.tsx
-│   ├── navigation/
-│   │   └── Navbar.tsx
-│   ├── radar/
-│   │   └── CrashLensRadar.tsx   # Signature animated SVG/Canvas radar
-│   ├── shared/
-│   │   └── VoiceNarrationPlayer.tsx
-│   └── theme/
-│       └── ThemeToggle.tsx
-├── data/
-│   ├── raw/                     # Raw STATS19 CSV (git ignored)
-│   └── processed/               # Compact reproducible analytical JSONs
-├── docs/
-│   ├── architecture.md
-│   ├── data_dictionary.md
-│   ├── findings.md
-│   └── methodology.md
-├── public/
-│   └── data/                    # Production JSON & GeoJSON data models
-├── python/
-│   ├── practice/
-│   │   ├── folium_sandbox.py
-│   │   └── kmeans_dbscan_sandbox.py
-│   ├── src/
-│   │   ├── analytics.py
-│   │   ├── clustering.py
-│   │   ├── data_cleaner.py
-│   │   ├── data_loader.py
-│   │   ├── evaluation.py
-│   │   ├── export_data.py
-│   │   ├── geo_utils.py
-│   │   ├── hotspot_ranking.py
-│   │   └── run_pipeline.py
-│   └── tests/
-│       ├── test_clustering.py
-│       ├── test_data_cleaner.py
-│       ├── test_geo_utils.py
-│       └── test_hotspot_ranking.py
-├── .env.example
-├── .gitignore
-├── next.config.ts
-├── package.json
-├── pytest.ini
-├── requirements.txt
-├── tailwind.config.ts
-└── tsconfig.json
-```
+> The following are potential future directions, not implemented features.
+
+- Point-level Indian accident datasets, once reliable public sources become available
+- HDBSCAN as an alternative to fixed-epsilon DBSCAN
+- Spatiotemporal clustering (combining location with time-of-day/season)
+- Improved severity-weighted density analysis
+- Geospatial polygon-level analysis (ward/borough boundaries)
+- Integration of additional environmental and road-infrastructure factors
 
 ---
 
-## 9. Security & Safety
+<div align="center">
 
-- **No Hardcoded Secrets:** No third-party API keys or sensitive credentials are embedded in client code.
-- **Static Artifact Delivery:** Eliminates remote code execution risks and server-side request forgery by serving validated static JSONs.
-- **Dependency Hygiene:** All dependencies are locked in `package.json` and audited with zero high-severity vulnerabilities.
+## 👤 Author
 
----
+**Daksh Khandelwal**
 
-## 10. License
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daksh-khandelwal-b02748391/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dk-khandelwal06)
 
-This project is licensed under the MIT License. STATS19 data is provided under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+<br/>
 
+*Built to turn road accident data into meaningful geographical intelligence.*
+
+</div>
