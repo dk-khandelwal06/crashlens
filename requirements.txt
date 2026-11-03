@@ -1,0 +1,11 @@
+# CrashLens Python Dependencies
+# Core Machine Learning & Spatial Data Analysis
+numpy>=2.0.0
+pandas>=2.2.0
+scikit-learn>=1.5.0
+scipy>=1.14.0
+requests>=2.31.0
+pytest>=8.0.0
+folium>=0.16.0
+matplotlib>=3.8.0
+seaborn>=0.13.0

@@ -1,0 +1,44 @@
+# Node.js dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Next.js build
+.next/
+out/
+build/
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+python/venv/
+.pytest_cache/
+
+# Data safety & secrets
+data/raw/
+*.csv.gz
+*.csv.zip
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Antigravity & IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tsbuildinfo

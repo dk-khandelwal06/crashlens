@@ -1,0 +1,228 @@
+{
+  "kmeans_elbow_curve": [
+    {
+      "k": 2,
+      "inertia": 440.8382,
+      "silhouette": 0.4011
+    },
+    {
+      "k": 3,
+      "inertia": 286.4765,
+      "silhouette": 0.4121
+    },
+    {
+      "k": 4,
+      "inertia": 227.0999,
+      "silhouette": 0.3419
+    },
+    {
+      "k": 5,
+      "inertia": 185.4108,
+      "silhouette": 0.3483
+    },
+    {
+      "k": 6,
+      "inertia": 159.8814,
+      "silhouette": 0.3349
+    },
+    {
+      "k": 7,
+      "inertia": 139.5338,
+      "silhouette": 0.3354
+    },
+    {
+      "k": 8,
+      "inertia": 123.3111,
+      "silhouette": 0.3354
+    },
+    {
+      "k": 9,
+      "inertia": 108.4974,
+      "silhouette": 0.3497
+    },
+    {
+      "k": 10,
+      "inertia": 98.4061,
+      "silhouette": 0.3433
+    },
+    {
+      "k": 11,
+      "inertia": 89.8181,
+      "silhouette": 0.3437
+    },
+    {
+      "k": 12,
+      "inertia": 81.6597,
+      "silhouette": 0.348
+    }
+  ],
+  "dbscan_sensitivity_matrix": [
+    {
+      "eps_km": 0.1,
+      "min_samples": 5,
+      "n_clusters": 991,
+      "n_noise_points": 15828,
+      "noise_percentage": 60.81,
+      "clustered_percentage": 39.19
+    },
+    {
+      "eps_km": 0.1,
+      "min_samples": 8,
+      "n_clusters": 389,
+      "n_noise_points": 20607,
+      "noise_percentage": 79.17,
+      "clustered_percentage": 20.83
+    },
+    {
+      "eps_km": 0.1,
+      "min_samples": 12,
+      "n_clusters": 130,
+      "n_noise_points": 23721,
+      "noise_percentage": 91.13,
+      "clustered_percentage": 8.87
+    },
+    {
+      "eps_km": 0.1,
+      "min_samples": 16,
+      "n_clusters": 37,
+      "n_noise_points": 25277,
+      "noise_percentage": 97.11,
+      "clustered_percentage": 2.89
+    },
+    {
+      "eps_km": 0.2,
+      "min_samples": 5,
+      "n_clusters": 832,
+      "n_noise_points": 8001,
+      "noise_percentage": 30.74,
+      "clustered_percentage": 69.26
+    },
+    {
+      "eps_km": 0.2,
+      "min_samples": 8,
+      "n_clusters": 492,
+      "n_noise_points": 12292,
+      "noise_percentage": 47.22,
+      "clustered_percentage": 52.78
+    },
+    {
+      "eps_km": 0.2,
+      "min_samples": 12,
+      "n_clusters": 306,
+      "n_noise_points": 16563,
+      "noise_percentage": 63.63,
+      "clustered_percentage": 36.37
+    },
+    {
+      "eps_km": 0.2,
+      "min_samples": 16,
+      "n_clusters": 184,
+      "n_noise_points": 19862,
+      "noise_percentage": 76.3,
+      "clustered_percentage": 23.7
+    },
+    {
+      "eps_km": 0.25,
+      "min_samples": 5,
+      "n_clusters": 709,
+      "n_noise_points": 5559,
+      "noise_percentage": 21.36,
+      "clustered_percentage": 78.64
+    },
+    {
+      "eps_km": 0.25,
+      "min_samples": 8,
+      "n_clusters": 432,
+      "n_noise_points": 9191,
+      "noise_percentage": 35.31,
+      "clustered_percentage": 64.69
+    },
+    {
+      "eps_km": 0.25,
+      "min_samples": 12,
+      "n_clusters": 285,
+      "n_noise_points": 13239,
+      "noise_percentage": 50.86,
+      "clustered_percentage": 49.14
+    },
+    {
+      "eps_km": 0.25,
+      "min_samples": 16,
+      "n_clusters": 209,
+      "n_noise_points": 16438,
+      "noise_percentage": 63.15,
+      "clustered_percentage": 36.85
+    },
+    {
+      "eps_km": 0.35,
+      "min_samples": 5,
+      "n_clusters": 439,
+      "n_noise_points": 3002,
+      "noise_percentage": 11.53,
+      "clustered_percentage": 88.47
+    },
+    {
+      "eps_km": 0.35,
+      "min_samples": 8,
+      "n_clusters": 279,
+      "n_noise_points": 5381,
+      "noise_percentage": 20.67,
+      "clustered_percentage": 79.33
+    },
+    {
+      "eps_km": 0.35,
+      "min_samples": 12,
+      "n_clusters": 237,
+      "n_noise_points": 8265,
+      "noise_percentage": 31.75,
+      "clustered_percentage": 68.25
+    },
+    {
+      "eps_km": 0.35,
+      "min_samples": 16,
+      "n_clusters": 167,
+      "n_noise_points": 11032,
+      "noise_percentage": 42.38,
+      "clustered_percentage": 57.62
+    },
+    {
+      "eps_km": 0.5,
+      "min_samples": 5,
+      "n_clusters": 209,
+      "n_noise_points": 1188,
+      "noise_percentage": 4.56,
+      "clustered_percentage": 95.44
+    },
+    {
+      "eps_km": 0.5,
+      "min_samples": 8,
+      "n_clusters": 155,
+      "n_noise_points": 2414,
+      "noise_percentage": 9.27,
+      "clustered_percentage": 90.73
+    },
+    {
+      "eps_km": 0.5,
+      "min_samples": 12,
+      "n_clusters": 133,
+      "n_noise_points": 4284,
+      "noise_percentage": 16.46,
+      "clustered_percentage": 83.54
+    },
+    {
+      "eps_km": 0.5,
+      "min_samples": 16,
+      "n_clusters": 110,
+      "n_noise_points": 6050,
+      "noise_percentage": 23.24,
+      "clustered_percentage": 76.76
+    }
+  ],
+  "current_dbscan_params": {
+    "eps_km": 0.25,
+    "min_samples": 8
+  },
+  "current_kmeans_params": {
+    "k": 8
+  }
+}

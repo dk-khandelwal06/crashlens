@@ -1,0 +1,579 @@
+{
+  "summary_kpis": {
+    "total_collisions": 26030,
+    "fatal_collisions": 127,
+    "fatal_percentage": 0.49,
+    "serious_collisions": 4226,
+    "serious_percentage": 16.24,
+    "slight_collisions": 21677,
+    "slight_percentage": 83.28,
+    "total_casualties": 30566,
+    "total_vehicles": 47728,
+    "avg_casualties_per_collision": 1.17,
+    "avg_vehicles_per_collision": 1.83
+  },
+  "severity_distribution": [
+    {
+      "severity": "Fatal",
+      "count": 127,
+      "percentage": 0.49,
+      "color": "#ef4444"
+    },
+    {
+      "severity": "Serious",
+      "count": 4226,
+      "percentage": 16.24,
+      "color": "#f59e0b"
+    },
+    {
+      "severity": "Slight",
+      "count": 21677,
+      "percentage": 83.28,
+      "color": "#10b981"
+    }
+  ],
+  "hourly_distribution": [
+    {
+      "hour": 0,
+      "label": "00:00",
+      "total": 477,
+      "fatal": 8,
+      "serious": 105,
+      "slight": 364,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": true
+    },
+    {
+      "hour": 1,
+      "label": "01:00",
+      "total": 401,
+      "fatal": 5,
+      "serious": 77,
+      "slight": 319,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": true
+    },
+    {
+      "hour": 2,
+      "label": "02:00",
+      "total": 304,
+      "fatal": 3,
+      "serious": 66,
+      "slight": 235,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": true
+    },
+    {
+      "hour": 3,
+      "label": "03:00",
+      "total": 223,
+      "fatal": 5,
+      "serious": 39,
+      "slight": 179,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": true
+    },
+    {
+      "hour": 4,
+      "label": "04:00",
+      "total": 210,
+      "fatal": 4,
+      "serious": 42,
+      "slight": 164,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": true
+    },
+    {
+      "hour": 5,
+      "label": "05:00",
+      "total": 223,
+      "fatal": 3,
+      "serious": 38,
+      "slight": 182,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": true
+    },
+    {
+      "hour": 6,
+      "label": "06:00",
+      "total": 492,
+      "fatal": 4,
+      "serious": 101,
+      "slight": 387,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": false
+    },
+    {
+      "hour": 7,
+      "label": "07:00",
+      "total": 1046,
+      "fatal": 4,
+      "serious": 214,
+      "slight": 828,
+      "is_morning_rush": true,
+      "is_evening_rush": false,
+      "is_night": false
+    },
+    {
+      "hour": 8,
+      "label": "08:00",
+      "total": 1620,
+      "fatal": 6,
+      "serious": 272,
+      "slight": 1342,
+      "is_morning_rush": true,
+      "is_evening_rush": false,
+      "is_night": false
+    },
+    {
+      "hour": 9,
+      "label": "09:00",
+      "total": 1091,
+      "fatal": 4,
+      "serious": 156,
+      "slight": 931,
+      "is_morning_rush": true,
+      "is_evening_rush": false,
+      "is_night": false
+    },
+    {
+      "hour": 10,
+      "label": "10:00",
+      "total": 1041,
+      "fatal": 10,
+      "serious": 174,
+      "slight": 857,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": false
+    },
+    {
+      "hour": 11,
+      "label": "11:00",
+      "total": 1095,
+      "fatal": 6,
+      "serious": 183,
+      "slight": 906,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": false
+    },
+    {
+      "hour": 12,
+      "label": "12:00",
+      "total": 1385,
+      "fatal": 5,
+      "serious": 211,
+      "slight": 1169,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": false
+    },
+    {
+      "hour": 13,
+      "label": "13:00",
+      "total": 1533,
+      "fatal": 7,
+      "serious": 225,
+      "slight": 1301,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": false
+    },
+    {
+      "hour": 14,
+      "label": "14:00",
+      "total": 1603,
+      "fatal": 5,
+      "serious": 227,
+      "slight": 1371,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": false
+    },
+    {
+      "hour": 15,
+      "label": "15:00",
+      "total": 1908,
+      "fatal": 7,
+      "serious": 264,
+      "slight": 1637,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": false
+    },
+    {
+      "hour": 16,
+      "label": "16:00",
+      "total": 1847,
+      "fatal": 4,
+      "serious": 285,
+      "slight": 1558,
+      "is_morning_rush": false,
+      "is_evening_rush": true,
+      "is_night": false
+    },
+    {
+      "hour": 17,
+      "label": "17:00",
+      "total": 2105,
+      "fatal": 7,
+      "serious": 356,
+      "slight": 1742,
+      "is_morning_rush": false,
+      "is_evening_rush": true,
+      "is_night": false
+    },
+    {
+      "hour": 18,
+      "label": "18:00",
+      "total": 1999,
+      "fatal": 6,
+      "serious": 306,
+      "slight": 1687,
+      "is_morning_rush": false,
+      "is_evening_rush": true,
+      "is_night": false
+    },
+    {
+      "hour": 19,
+      "label": "19:00",
+      "total": 1668,
+      "fatal": 5,
+      "serious": 265,
+      "slight": 1398,
+      "is_morning_rush": false,
+      "is_evening_rush": true,
+      "is_night": false
+    },
+    {
+      "hour": 20,
+      "label": "20:00",
+      "total": 1239,
+      "fatal": 1,
+      "serious": 185,
+      "slight": 1053,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": true
+    },
+    {
+      "hour": 21,
+      "label": "21:00",
+      "total": 929,
+      "fatal": 3,
+      "serious": 144,
+      "slight": 782,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": true
+    },
+    {
+      "hour": 22,
+      "label": "22:00",
+      "total": 875,
+      "fatal": 12,
+      "serious": 162,
+      "slight": 701,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": true
+    },
+    {
+      "hour": 23,
+      "label": "23:00",
+      "total": 716,
+      "fatal": 3,
+      "serious": 129,
+      "slight": 584,
+      "is_morning_rush": false,
+      "is_evening_rush": false,
+      "is_night": true
+    }
+  ],
+  "monthly_distribution": [
+    {
+      "month_num": 1,
+      "month": "Jan",
+      "total": 2132,
+      "fatal": 10,
+      "serious": 325,
+      "slight": 1797
+    },
+    {
+      "month_num": 2,
+      "month": "Feb",
+      "total": 1859,
+      "fatal": 10,
+      "serious": 271,
+      "slight": 1578
+    },
+    {
+      "month_num": 3,
+      "month": "Mar",
+      "total": 2263,
+      "fatal": 16,
+      "serious": 386,
+      "slight": 1861
+    },
+    {
+      "month_num": 4,
+      "month": "Apr",
+      "total": 2013,
+      "fatal": 7,
+      "serious": 337,
+      "slight": 1669
+    },
+    {
+      "month_num": 5,
+      "month": "May",
+      "total": 2342,
+      "fatal": 11,
+      "serious": 388,
+      "slight": 1943
+    },
+    {
+      "month_num": 6,
+      "month": "Jun",
+      "total": 2437,
+      "fatal": 10,
+      "serious": 378,
+      "slight": 2049
+    },
+    {
+      "month_num": 7,
+      "month": "Jul",
+      "total": 2333,
+      "fatal": 12,
+      "serious": 389,
+      "slight": 1932
+    },
+    {
+      "month_num": 8,
+      "month": "Aug",
+      "total": 2140,
+      "fatal": 12,
+      "serious": 352,
+      "slight": 1776
+    },
+    {
+      "month_num": 9,
+      "month": "Sep",
+      "total": 2078,
+      "fatal": 7,
+      "serious": 355,
+      "slight": 1716
+    },
+    {
+      "month_num": 10,
+      "month": "Oct",
+      "total": 2276,
+      "fatal": 15,
+      "serious": 373,
+      "slight": 1888
+    },
+    {
+      "month_num": 11,
+      "month": "Nov",
+      "total": 2346,
+      "fatal": 11,
+      "serious": 379,
+      "slight": 1956
+    },
+    {
+      "month_num": 12,
+      "month": "Dec",
+      "total": 1811,
+      "fatal": 6,
+      "serious": 293,
+      "slight": 1512
+    }
+  ],
+  "day_of_week_distribution": [
+    {
+      "day_num": 1,
+      "day": "Mon",
+      "total": 3444,
+      "is_weekend": false
+    },
+    {
+      "day_num": 2,
+      "day": "Tue",
+      "total": 3734,
+      "is_weekend": false
+    },
+    {
+      "day_num": 3,
+      "day": "Wed",
+      "total": 3809,
+      "is_weekend": false
+    },
+    {
+      "day_num": 4,
+      "day": "Thu",
+      "total": 4046,
+      "is_weekend": false
+    },
+    {
+      "day_num": 5,
+      "day": "Fri",
+      "total": 4282,
+      "is_weekend": false
+    },
+    {
+      "day_num": 6,
+      "day": "Sat",
+      "total": 3759,
+      "is_weekend": true
+    },
+    {
+      "day_num": 7,
+      "day": "Sun",
+      "total": 2956,
+      "is_weekend": true
+    }
+  ],
+  "road_type_distribution": [
+    {
+      "road_type": "Single carriageway",
+      "count": 15748,
+      "percentage": 60.5
+    },
+    {
+      "road_type": "Dual carriageway",
+      "count": 4367,
+      "percentage": 16.8
+    },
+    {
+      "road_type": "Unknown",
+      "count": 1988,
+      "percentage": 7.6
+    },
+    {
+      "road_type": "One way street",
+      "count": 1646,
+      "percentage": 6.3
+    },
+    {
+      "road_type": "Roundabout",
+      "count": 1539,
+      "percentage": 5.9
+    },
+    {
+      "road_type": "Slip road",
+      "count": 742,
+      "percentage": 2.9
+    }
+  ],
+  "weather_distribution": [
+    {
+      "weather": "Fine (no high winds)",
+      "count": 20606,
+      "percentage": 79.2
+    },
+    {
+      "weather": "Raining (no high winds)",
+      "count": 2299,
+      "percentage": 8.8
+    },
+    {
+      "weather": "Other",
+      "count": 1411,
+      "percentage": 5.4
+    },
+    {
+      "weather": "Unknown",
+      "count": 1291,
+      "percentage": 5.0
+    },
+    {
+      "weather": "Fine + high winds",
+      "count": 178,
+      "percentage": 0.7
+    },
+    {
+      "weather": "Raining + high winds",
+      "count": 116,
+      "percentage": 0.4
+    },
+    {
+      "weather": "Fog or mist",
+      "count": 71,
+      "percentage": 0.3
+    },
+    {
+      "weather": "Snowing (no high winds)",
+      "count": 56,
+      "percentage": 0.2
+    },
+    {
+      "weather": "Snowing + high winds",
+      "count": 2,
+      "percentage": 0.0
+    }
+  ],
+  "light_distribution": [
+    {
+      "light_condition": "Daylight",
+      "count": 17837,
+      "percentage": 68.5
+    },
+    {
+      "light_condition": "Darkness (lights lit)",
+      "count": 7349,
+      "percentage": 28.2
+    },
+    {
+      "light_condition": "Darkness (lighting unknown)",
+      "count": 426,
+      "percentage": 1.6
+    },
+    {
+      "light_condition": "Darkness (no lighting)",
+      "count": 244,
+      "percentage": 0.9
+    },
+    {
+      "light_condition": "Darkness (lights unlit)",
+      "count": 174,
+      "percentage": 0.7
+    }
+  ],
+  "insights": [
+    {
+      "category": "Temporal",
+      "title": "Diurnal Crash Peak at 17:00",
+      "stat": "2,105 collisions (8.1%)",
+      "description": "Historical records show the single highest collision volume occurred at 17:00, aligning with the evening transit peak. Morning commuter hours (07:00–09:00) also exhibit elevated frequency.",
+      "caveat": "Reflects traffic volume peaks rather than individual driver culpability."
+    },
+    {
+      "category": "Infrastructure",
+      "title": "Dominance of Single carriageways",
+      "stat": "60.5% of total collisions",
+      "description": "Single carriageway infrastructure accounts for the largest proportion of recorded incidents, reflecting both the density of urban road layouts and frequent vehicle/pedestrian conflict points.",
+      "caveat": "High incident counts correlate with high road mileage and exposure rates."
+    },
+    {
+      "category": "Environmental",
+      "title": "Adverse Weather vs Clear Conditions",
+      "stat": "79.2% clear weather vs 9.3% rain",
+      "description": "Contrary to popular assumptions that poor weather triggers most crashes, 79.2% occurred during clear weather conditions, showing that fair weather travel volumes drive high absolute incident counts.",
+      "caveat": "Exposure data (total vehicle miles in rainy vs fine weather) is required to calculate true crash rates."
+    },
+    {
+      "category": "Weekly Rhythm",
+      "title": "Weekday vs Weekend Crash Rates",
+      "stat": "3,863 collisions/weekday vs 3,358/weekend day",
+      "description": "Average daily collision volume across Monday–Friday is 3,863, compared to 3,358 per weekend day, consistent with employment-driven commuting rhythms.",
+      "caveat": "Weekend collisions frequently exhibit different injury severity ratios."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "dataset_name": "DfT STATS19 Road Safety Open Data (Collisions)",
+  "provider": "Department for Transport (UK Government)",
+  "source_url": "https://www.gov.uk/government/statistical-data-sets/road-safety-open-data",
+  "dataset_year": 2022,
+  "study_area": "Greater London",
+  "bounding_box": {
+    "min_lat": 51.28,
+    "max_lat": 51.69,
+    "min_lon": -0.51,
+    "max_lon": 0.33
+  },
+  "licensing": "Open Government Licence v3.0 (OGL)",
+  "audit_log": {
+    "raw_record_count": 106004,
+    "missing_coordinate_count": 22,
+    "invalid_coordinate_count": 0,
+    "outside_boundary_count": 79952,
+    "missing_timestamp_count": 0,
+    "retained_record_count": 26030,
+    "filtering_boundary": {
+      "min_lat": 51.28,
+      "max_lat": 51.69,
+      "min_lon": -0.51,
+      "max_lon": 0.33
+    }
+  },
+  "geographic_crs": "WGS84 (EPSG:4326)",
+  "distance_metric": "Haversine Spherical Great-Circle (Earth Radius = 6371.0088 km)",
+  "severity_code_mapping": {
+    "1": "Fatal (injuries resulting in death within 30 days)",
+    "2": "Serious (severe injuries requiring hospital admission or permanent disability)",
+    "3": "Slight (minor injuries, whiplash, minor cuts, bruising)"
+  },
+  "limitations_statement": "STATS19 records personal injury collisions reported to police forces. Damage-only collisions are not recorded. Furthermore, this dataset covers the United Kingdom (focused on Greater London) and does not represent traffic conditions in India or Jaipur. Clustering identifies historical spatial concentrations and does not imply direct individual causation."
+}
