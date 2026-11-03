@@ -22,7 +22,7 @@ Turning raw collision records into interactive road-safety intelligence — powe
 
 <br/>
 
-**[🚀 Live Demo](https://crashlens-snowy.vercel.app/) · [📂 GitHub Repository](https://github.com/dk-khandelwal06/crashlens) · [💼 LinkedIn](https://www.linkedin.com/in/daksh-khandelwal-b02748391/)**
+**[🚀 Live Demo](https://crashlens-snowy.vercel.app/) · [📂 GitHub Repository](https://github.com/dk-khandelwal06/crashlens) · [💼 LinkedIn](https://www.linkedin.com/in/daksh-khandelwal-b02748391/) · [🎥 Demo Video]()**
 
 </div>
 
